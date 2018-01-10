@@ -5,7 +5,15 @@ node {
     sh "'${mvnHome}/bin/mvn' clean install"
   }
   stage('Test') {
-    junit '**/target/surefire-reports/TEST-*.xml'
-    archive 'target/*.jar'
+    sh "echo 'Should be some tests here'"
+  }
+  stage('Publish'){
+    sh "echo 'We are publishing artefact to some storage here ...'"
+  }
+  stage('Deploy to dev'){
+    sh "echo 'Deploying to dev'"
+  }
+  stage('Smoke test'){
+    sh "echo 'Smoke tests here'"
   }
 }
