@@ -1,3 +1,6 @@
+def inspec_run(){
+  sh "inspec exec ./ -t ssh://127.0.0.1"
+}
 node {
   stage('Build') {
     git 'https://github.com/akiryiak/hello-world-war.git'
@@ -13,7 +16,13 @@ node {
   stage('Deploy to dev'){
     sh "echo 'Deploying to dev'"
   }
-  stage('Smoke test'){
+  stage('Smoke test DEV'){
+    sh "echo 'Smoke tests here'"
+  }
+  stage('Deploy to QA'){
+    sh "echo 'Deploying to QA'"
+  }
+  stage('Smoke test QA'){
     sh "echo 'Smoke tests here'"
   }
 }
